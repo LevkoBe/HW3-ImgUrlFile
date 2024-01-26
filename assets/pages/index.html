@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endpoints</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        h2 {
+            color: #17a2b8;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        code {
+            background-color: #e9ecef;
+            padding: 3px 5px;
+            border-radius: 3px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>1. Get Metadata</h2>
+    <p>Endpoint to get metadata about a text file and a substring.</p>
+    <code>POST /metadata</code>
+    <p>Parameters:</p>
+    <ul>
+        <li><code>text</code> (string): The content of the text file.</li>
+        <li><code>substring</code> (string): The substring to search in the text (case-insensitive).</li>
+    </ul>
+
+    <h2>2. Parse URL</h2>
+    <p>Endpoint to parse a URL and provide human-readable information.</p>
+    <code>POST /parse_url</code>
+    <p>Parameters:</p>
+    <ul>
+        <li><code>url</code> (string): The URL to parse.</li>
+    </ul>
+
+    <h2>3. Serve Images</h2>
+    <p>Endpoint to serve images based on the provided path.</p>
+    <code>GET /images/{image_path}</code>
+
+    <h2>4. Additional Info</h2>
+    <p>Other endpoints:</p>
+    <ul>
+        <li><code>GET /</code>: Main HTML page.</li>
+        <li><code>GET /info</code>: JSON with additional information.</li>
+    </ul>
+</body>
+</html>
