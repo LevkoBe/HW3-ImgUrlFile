@@ -1,16 +1,20 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import json
-from typing import List
 from urllib.parse import urlparse, parse_qs
 from helpers.info import info
+import re
+import os
 
 
 class SimpleHandler(SimpleHTTPRequestHandler):
-    def _send_response(self, message, status=200):
+    def _send_response(self, content, status=200, content_type='text/html'):
         self.send_response(status)
-        self.send_header('Content-type', 'text/html')
+        self.send_header('Content-type', content_type)
         self.end_headers()
-        self.wfile.write(bytes(message, 'utf8'))
+        try:
+            self.wfile.write(bytes(content, 'utf8'))
+        except:
+            self.wfile.write(content)
 
     def do_GET(self):
         print(self.path)
@@ -27,21 +31,48 @@ class SimpleHandler(SimpleHTTPRequestHandler):
         if path == '/info':
             self._send_response(json.dumps(info))
 
-        if path == '/image/:image':
-            self._send_response("NOn-implemented")
+        match = re.match(r'/image/([^/]+)$', path)
+        if match:
+            image_name = match.group(1)
+            image_path = f"assets/images/{image_name}"
+            if os.path.exists(image_path):
+                with open(image_path, 'rb') as image_file:
+                    image = image_file.read()
+                self._send_response(image, status=200, content_type='image/png')
+                return
+            self._send_response("Image not found", status=404)
 
         if path == '/urlParse':
             url_string: str = query_params["url"][0]
             parsed_url = urlparse(url_string)
+
             url_info = f"<p>It has {parsed_url.scheme} protocol;</p>\n" + \
-                f"<p>domain is {parsed_url.netloc};</p>\n"
+                       f"<p>domain is {parsed_url.netloc};</p>\n"
+
+            if parsed_url.port:
+                url_info += f"<p>specified port is {parsed_url.port};</p>\n"
+            else:
+                url_info += "<p>no specified port;</p>\n"
+
             path_steps = [step for step in parsed_url.path.split('/')[1:]]
             url_info += f"<p>it has {len(path_steps)} path steps: {' and '.join(path_steps)};</p>\n"
+
             if parsed_url.query != "":
                 query_params = parse_qs(parsed_url.query)
                 url_info += f"<p>and {len(query_params)} query parameters: {query_params}.</p>\n"
             else:
-                url_info += "<p>and no query parameters.</p>\n"
+                url_info += "<p>and no query parameters;</p>\n"
+
+            if parsed_url.fragment:
+                url_info += f"<p>specified fragment is {parsed_url.fragment}.</p>\n"
+            else:
+                url_info += "<p>no specified fragment;</p>\n"
+
+            if parsed_url.params:
+                url_info += f"<p>and parameters are {parsed_url.params}.</p>\n"
+            else:
+                url_info += "<p>and no 'parameters'</p>\n"
+
             self._send_response(url_info)
 
     def do_POST(self):
@@ -78,5 +109,3 @@ def run_server(port=8000):
 
 if __name__ == '__main__':
     run_server()
-
-

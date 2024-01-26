@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2db83d20-b3cd-4bbd-b0ef-2a9e58a0a6d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/HW3-ImgUrlFile.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/pages/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/handlers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="2db83d20-b3cd-4bbd-b0ef-2a9e58a0a6d1" name="Changes" comment="Images work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/info.py" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +89,19 @@
       <option name="presentableId" value="Default" />
       <updated>1706198030229</updated>
     </task>
+    <task id="LOCAL-00001" summary="Url, file">
+      <option name="closed" value="true" />
+      <created>1706267026107</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706267026107</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Url, file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Url, file" />
   </component>
 </project>
