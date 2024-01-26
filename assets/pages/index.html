@@ -8,25 +8,25 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 20px;
-            background-color: #f8f8f8;
-            color: #333;
+            background-color: #fdf5e6;  /* Warm beige background */
+            color: #8b4513;  /* Saddle Brown text color */
         }
 
         h1 {
-            color: #007bff;
+            color: #b22222;  /* Firebrick heading color */
         }
 
         h2 {
-            color: #17a2b8;
+            color: #cd853f;  /* Peru subheading color */
         }
 
         p {
             margin-bottom: 15px;
-            color: #555;
+            color: #a0522d;  /* Sienna paragraph text color */
         }
 
         code {
-            background-color: #e9ecef;
+            background-color: #d2b48c;  /* Tan code background */
             padding: 3px 5px;
             border-radius: 3px;
         }
@@ -44,16 +44,18 @@
 <body>
     <h2>1. Get Metadata</h2>
     <p>Endpoint to get metadata about a text file and a substring.</p>
-    <code>POST /metadata</code>
+    <code>POST /fileParse</code>
     <p>Parameters:</p>
     <ul>
-        <li><code>text</code> (string): The content of the text file.</li>
-        <li><code>substring</code> (string): The substring to search in the text (case-insensitive).</li>
+        <li><code>file</code> (string): The content of the text file.</li>
+        <li><code>string</code> (string): The substring to search in the text (case-insensitive).</li>
     </ul>
 
     <h2>2. Parse URL</h2>
     <p>Endpoint to parse a URL and provide human-readable information.</p>
-    <code>POST /parse_url</code>
+    <code>GET <a href="/urlParse?url=https://example.com">/urlParse?url=https://example.com</a></code>
+    <code>GET <a href="/urlParse?url=http://127.0.0.1:8000/urlParse?url=url">/urlParse?url=http://127.0.0.1:8000/urlParse?url=url</a></code>
+    <code>GET <a href="/urlParse?url=http://example.com/products/products/products?category=electronics%26page=2">/urlParse?url=http://example.com/products/products/products?category=electronics%26page=2</a></code>
     <p>Parameters:</p>
     <ul>
         <li><code>url</code> (string): The URL to parse.</li>
@@ -61,13 +63,16 @@
 
     <h2>3. Serve Images</h2>
     <p>Endpoint to serve images based on the provided path.</p>
-    <code>GET /images/{image_path}</code>
+    <code>GET <a href="/image/img.png">/image/img.png</a></code><br>
+    <code>GET <a href="/image/img_1.png">/image/img_1.png</a></code>
+    <code>GET <a href="/image/img-2.png">/image/img-2.png</a></code>
+    <code>GET <a href="/image/img_3.png">/image/img_3.png</a></code>
 
     <h2>4. Additional Info</h2>
     <p>Other endpoints:</p>
     <ul>
-        <li><code>GET /</code>: Main HTML page.</li>
-        <li><code>GET /info</code>: JSON with additional information.</li>
+        <li><code>GET <a href="/">/</a></code>: Main HTML page.</li>
+        <li><code>GET <a href="/info">/info</a></code>: JSON with additional information.</li>
     </ul>
 </body>
 </html>
